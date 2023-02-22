@@ -17,22 +17,22 @@ class AritmeticaTest {
     private CalculadoraAppService service;
 
     @BeforeAll
-    public static void initClass(){
+    public static void initClass() {
         aritmetica = new Aritmetica();
     }
 
     @AfterAll
-    public static void finishClass(){
+    public static void finishClass() {
         aritmetica = null;
     }
 
     @BeforeEach
-    public void init(){
+    public void init() {
         //aritmetica = new Aritmetica();
     }
 
     @AfterEach
-    public void finish(){
+    public void finish() {
         //aritmetica = null;
     }
 
@@ -68,9 +68,9 @@ class AritmeticaTest {
 
     @Test
     void divisionPorCero() {
-         ArithmeticException exception = Assertions.assertThrows(ArithmeticException.class, () -> {
-             aritmetica.division(4, 0);
-         });
+        ArithmeticException exception = Assertions.assertThrows(ArithmeticException.class, () -> {
+            aritmetica.division(4, 0);
+        });
         Assertions.assertEquals("Divisor no puede ser cero", exception.getMessage());
     }
 
@@ -81,7 +81,7 @@ class AritmeticaTest {
         String contrasena = "hadechine";
         int base = 2;
         int exponente = 2;
-        Mockito.when(service.login(usuario,contrasena)).thenReturn(true);
+        Mockito.when(service.login(usuario, contrasena)).thenReturn(true);
         Mockito.when(service.potencia(base, exponente)).thenReturn(4);
 
         //Act
@@ -98,7 +98,7 @@ class AritmeticaTest {
         String contrasena = "invalido";
         int base = 2;
         int exponente = 2;
-        Mockito.when(service.login(usuario,contrasena)).thenReturn(false);
+        Mockito.when(service.login(usuario, contrasena)).thenReturn(false);
 
         //Act
         Exception exception = Assertions.assertThrows(Exception.class, () -> {
